@@ -17,8 +17,12 @@
  //console.log(headerTitle.innerText);
  //headerTitle.innerHTML= '<h3>Hello</3';
  //headerTitle.style.borderBottomColor - 'solid 3px #000';
-var items = document.getElementsByClassName('list-group-items');
-console.log(items);
-console.log(item[3]);
-items[3].style.bacgroundColor = 'Green'
-items[3].style.fontWeight = 'bold'
+var items = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[2]);
+li[2].style.bacgroundColor = 'red'
+li[2].style.fontWeight = 'Italics'
+
+for(var i = 0; li.length; i++){
+    li[i].style.backgroundColor= 'pink';
+}
