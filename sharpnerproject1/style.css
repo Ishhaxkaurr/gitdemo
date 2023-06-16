@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0
+}
+body{
+    background-image: url(1567679.webp);
+    color: black;
+    background-size: cover;
+    font-size: 20px;
+
+}
+h1{
+color: red;
+text-align: center;
+font-family: 'Times New Roman', Times, serif;
+}
+p{
+    text-align: center;
+    color:crimson;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container{
+    width: 100%;
+    text-align: center;
+    
+}
+form{
+    background-color:lightblue;
+    margin-top: 100;
+    padding:3;
+}
