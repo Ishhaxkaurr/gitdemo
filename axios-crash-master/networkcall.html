@@ -82,21 +82,21 @@ function showuseronScreen(user){
      removeuserfromScreen(user.Email)
     }
     const parentNode = document.getElementById('users');
-    const childHTML = `<li id=${user._id}>  ${user.Name} : ${user.Email} : ${user.Phonenumber}
+    const childHTML = `<li id=${user._id}>  ${user.Name} - ${user.Email} - ${user.Phonenumber}
     <button class="btn btn-danger" onClick=deleteUser("${user._id}")>Delete User</button>
-    <button  class="btn btn-info" onclick=editUser("${user._id}","${user.Name}","${user.Phonenumber}")>Edit Details</button>
+    <button  class="btn btn-info" onclick=editUser("${user.Email}","${user.Name}","${user.Phonenumber}","${user._id}")>Edit Details</button>
     </li>`
     parentNode.innerHTML = parentNode.innerHTML + childHTML;
 }
 
-function editUser(Email,Name,Phonenumber){
+function editUser(Email,Name,Phonenumber,userId){
     document.getElementById('email').value = Email;
     document.getElementById('name').value = Name;
     document.getElementById('phonenumber').value = Phonenumber;
-    deleteUser(Email);
+    deleteUser(userId);
 }
 
-function deleteUser(Email){
+function deleteUser(userId){
     axios.delete(`https://crudcrud.com/api/d84a519406f54c1fb9d206c257d76cd4/appointmentdata${userId}`)
     .then((response)=>{
         removeuserfromScreen(userId)
