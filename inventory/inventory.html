@@ -54,6 +54,7 @@
             else{
                 e.preventDefault();
                 const productDetails= {
+
                     itemname: itemname.value,
                     Description: Description.value,
                     Sellingprice: Sellingprice.value,
@@ -93,23 +94,65 @@
 
                 const parentNode = document.getElementById('products');
                 const childHTML = `<li id=${product._id} class="fw-normal"> ${product.itemname} - ${product.Description} - ${product.Sellingprice} -  ${product.Quantity}<br>
-                    <button  class="btn btn-danger btn-sm" onClick=updatequantity("${product._id}")>Buy one</button>
-                    <button class="btn btn-danger btn-sm" onClick=updatequantity("${product._id}")>Buy two</button>
-                    <button class="btn btn-danger btn-sm" onClick=updatequantity("${product._id}")>Buy three</button>
+                    <button  class="btn btn-success btn-sm" onClick=updatequantity1"${product.Quantity}">Buy one</button>
+                    <button class="btn btn-danger btn-sm" onClick=updatequantity2"${product.Quantity}">Buy two</button>
+                    <button class="btn btn-primary btn-sm" onClick=updatequantity3"${product.Quantity}">Buy three</button>
                     </li>`
                     parentNode.innerHTML = parentNode.innerHTML + childHTML;
                 
                 }
 
-                function updatequantity(Quantity){
-                    document.getElementById('Quantity').value = Quantity;
+                const updatequantity1 = (Quantity) => {
+                    
+                    axios.put(`https://crudcrud.com/api/e9542ef35372492180df7ae0429034b2/InventoryManagement/${product.Quantity}`)
+                    .then((response)=>{
+                        
+
+                        product.Quantity+=1;
+                        
+                        alert('Please fill all the details')
+                        
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
     
-                    updatequantity(Quantity);
+                  
+                }
+            
+                const updatequantity2 = (Quantity) => {
+                    
+                    axios.put(`https://crudcrud.com/api/e9542ef35372492180df7ae0429034b2/InventoryManagement/${product.Quantity}`)
+                    .then((response)=>{
+                        product.Quantity+=2;
+                        console.log("quantity increased by 2") 
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+    
+                  
+                }
+                const updatequantity3 = (Quantity) => {
+                    
+                    axios.put(`https://crudcrud.com/api/e9542ef35372492180df7ae0429034b2/InventoryManagement/${product.Quantity}`)
+                    .then((response)=>{
+                        product.Quantity+=3;
+
+                        console.log("quantity increased by 3") 
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+    
+                  
                 }
             
             function deleteProduct(productId){
+                
                 axios.delete(`https://crudcrud.com/api/e9542ef35372492180df7ae0429034b2/InventoryManagement/${productId}`)
                 .then((response)=>{
+                    
                     removeProductfromScreen(productId)
                 })
                 .catch((err)=>{
