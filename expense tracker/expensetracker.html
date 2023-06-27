@@ -40,13 +40,13 @@
             const Sellingprice= document.getElementById('Sellingprice');
             const itemname= document.getElementById('itemname');
             const Description= document.getElementById('Description');
-            const quantity= document.querySelector('#quanity')
+            const Quantity= document.querySelector('#Quantity')
 
             myform.addEventListener('submit', addProduct);
 
         function addProduct(e){
             
-            if(itemname.value== '' || Description.value== '' || Sellingprice.value=='' ||  quantity.value=='' ){
+            if(temname.value== '' || Description.value== '' || Sellingprice.value=='' ||  Quantity.value=='' ){
                 alert('Please fill all the details')
             }
             
@@ -57,7 +57,7 @@
                     itemname: itemname.value,
                     Description: Description.value,
                     Sellingprice: Sellingprice.value,
-                    quantity: quantity.value
+                    Quantity: Quantity.value
 
                 }
 
@@ -71,7 +71,7 @@
                 itemname.value ='';
                 Description.value ='';
                 Sellingprice.value ='';
-                quantity.value ='';
+                Quantity.value ='';
                 
             }
         }
@@ -92,7 +92,7 @@
             function ShowProductonScreen(product){
 
                 const parentNode = document.getElementById('products');
-                const childHTML = `<li id=${product._id} class="fw-normal"> ${product.itemname} - ${product.Description} - ${product.Sellingprice} -  ${product.quantity}<br>
+                const childHTML = `<li id=${product._id} class="fw-normal"> ${product.itemname} - ${product.Description} - ${product.Sellingprice} -  ${product.Quantity}<br>
                     <button  class="btn btn-danger btn-sm" onClick=deleteProduct("${product._id}")>Delete Product</button>
                     </li>`
                     parentNode.innerHTML = parentNode.innerHTML + childHTML;
