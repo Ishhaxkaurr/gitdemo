@@ -17,8 +17,8 @@
                 <input type="text" class="form-control" id="itemname">
                 <label for="Description" class="form-label">Description:</label>
                 <input type="text" class="form-control" id="Description">
-                <label for="SellingPrice" class="form-label">SellingPrice:</label>
-                <input type="number" class="form-control" id="SellingPrice">
+                <label for="Sellingprice" class="form-label">SellingPrice:</label>
+                <input type="number" class="form-control" id="Sellingprice">
                 <label for="quantity" class="form-label">Quantity:</label>
                 <input type="number" class="form-control" id="Quantity">
                     
@@ -93,12 +93,19 @@
 
                 const parentNode = document.getElementById('products');
                 const childHTML = `<li id=${product._id} class="fw-normal"> ${product.itemname} - ${product.Description} - ${product.Sellingprice} -  ${product.Quantity}<br>
-                    <button  class="btn btn-danger btn-sm" onClick=deleteProduct("${product._id}")>Delete Product</button>
+                    <button  class="btn btn-danger btn-sm" onClick=updatequantity("${product._id}")>Buy one</button>
+                    <button class="btn btn-danger btn-sm" onClick=updatequantity("${product._id}")>Buy two</button>
+                    <button class="btn btn-danger btn-sm" onClick=updatequantity("${product._id}")>Buy three</button>
                     </li>`
                     parentNode.innerHTML = parentNode.innerHTML + childHTML;
                 
                 }
 
+                function updatequantity(Quantity){
+                    document.getElementById('Quantity').value = Quantity;
+    
+                    updatequantity(Quantity);
+                }
             
             function deleteProduct(productId){
                 axios.delete(`https://crudcrud.com/api/e9542ef35372492180df7ae0429034b2/InventoryManagement/${productId}`)
