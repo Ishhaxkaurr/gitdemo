@@ -1,5 +1,5 @@
 body{
-    background-image: url('background.jpg');
+    background-image: url('images.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -8,7 +8,7 @@ body{
 table{
     width: 80%;
     margin: 40px auto;
-    background: rgb(124,154,167);
+    background: hsla(9,100%,64%,0.5);
 }
 
 table.list{
@@ -48,11 +48,11 @@ input[type="submit"],input[type="reset"]{
 }
 
 input[type="submit"]:hover{
-    background: #4b99d8;
+    background: #94d84b;
 }
 
 input[type="reset"]:hover{
-    background: #4b99d8;
+    background: #FF0000;
 }
 
 button{
