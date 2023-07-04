@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Crud Operation</title>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="name">Candy Name</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description">
+                    </div>
+                    <div>
+                        <label for="quantity">Quantities</label>
+                        <input type="number" name="quantity" id="quantity">
+                    </div>
+                    <div>
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price">
+                    </div>
+
+                    <div class="form_action--button">
+                        <input type="submit" value="Add Item">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+
+            <td>
+                <table class="list" id="storeList">
+                    <thead>
+                        <tr>                            
+                            <th>Candy Name</th>
+                            <th>Description</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </td>
+            </td>
+        </tr>
+    </table>
+    
+    <script type="text/javascript" src="./script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" defer></script>
+</body>
+
+</html>
