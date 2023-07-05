@@ -1,9 +1,9 @@
 var selectedRow = null;
-    let url = "https://crudcrud.com/api/13687348b0534390bb027a71aa7a641a/InventoryManagement";
+    let url = "https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/InventoryManagement";
 
     window.addEventListener('DOMContentLoaded', async () => {
       try {
-        const res = await axios.get(url);
+        const res = await axios.get('https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/InventoryManagement');
         for (let i = 0; i < res.data.length; i++) {
           insertNewRecord(res.data[i]);
         }
@@ -13,11 +13,12 @@ var selectedRow = null;
     });
 
     async function onFormSubmit(e) {
-      e.preventDefault();
+      debugger;
+      //e.preventDefault();
       var formData = readFormData();
       if (selectedRow == null) {
         try {
-          const res = await axios.post(url, formData);
+          const res = await axios.post('https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/InventoryManagement', formData);
           insertNewRecord(res.data);
         } catch (err) {
           console.log(err);
@@ -38,6 +39,7 @@ var selectedRow = null;
     }
 
     async function insertNewRecord(data) {
+      debugger;
       var table = document.getElementById("storeList").getElementsByTagName('tbody')[0];
       var newRow = table.insertRow(table.length);
       cell1 = newRow.insertCell(0);
@@ -66,7 +68,7 @@ var selectedRow = null;
         updatedformdata["quantity"] = quantity;
         updatedformdata["price"] = row.cells[3].innerHTML;
 
-        const res = await axios.put(url+'/'+id, updatedformdata);
+        const res = await axios.put('https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/InventoryManagement'+'/'+id, updatedformdata);
         // Add any additional logic or API calls here to update the quantity in the backend
       } else {
         alert('No more candies available!');
@@ -87,7 +89,7 @@ var selectedRow = null;
         updatedformdata["quantity"] = quantity;
         updatedformdata["price"] = row.cells[3].innerHTML;
 
-        const res = await axios.put(url+'/'+id, updatedformdata);
+        const res = await axios.put('https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/InventoryManagement'+'/'+id, updatedformdata);
         // Add any additional logic or API calls here to update the quantity in the backend
       } else {
         alert('Not enough candies available!');
@@ -95,6 +97,7 @@ var selectedRow = null;
     }
 
     async function onBuy3(button,id) {
+      debugger;
       var row = button.parentNode.parentNode;
       var quantityElement = row.cells[2];
       var quantity = parseInt(quantityElement.innerHTML);
@@ -109,7 +112,7 @@ var selectedRow = null;
         updatedformdata["quantity"] = quantity;
         updatedformdata["price"] = row.cells[3].innerHTML;
 
-        const res = await axios.put(url+'/'+id, updatedformdata);
+        const res = await axios.put('https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/InventoryManagement'+'/'+id, updatedformdata);
 
         // Add any additional logic or API calls here to update the quantity in the backend
       } else {
