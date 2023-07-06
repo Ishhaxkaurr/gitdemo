@@ -3,7 +3,7 @@ let out = document.getElementById('output');
 
 async function getData() {
   try {
-    const res = await axios.get("https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy");
+    const res = await axios.get("https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37be/candy");
     for (let i = 0; i < res.data.length; i++) {
       showdata(res.data[i]);
     }
@@ -15,7 +15,7 @@ async function getData() {
 window.addEventListener('DOMContentLoaded', getData);
 
 let sbmt = document.getElementById('submit');
-sbmt.addEventListener('click', async (sub) => {
+sbmt.addEventListener('click', async (sub) => {  
   sub.preventDefault();
   let candy = document.getElementById('candy_name').value;
   let description = document.getElementById('description').value;
@@ -28,7 +28,7 @@ sbmt.addEventListener('click', async (sub) => {
     quantity: quantity
   };
   try {
-    const resp = await axios.post("https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy", obj);
+    const resp = await axios.post("https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37be/candy", obj);
     console.log(resp.data);
     showdata(resp.data);
   } catch (err) {
@@ -48,7 +48,7 @@ function showdata(data) {
   let by1=document.createElement('input');
     by1.type='button';
     by1.value='buy 1';
-    by1.addEventListener('click', async (buy) => {
+    by1.addEventListener('click', async (buy) => { 
         if (data.quantity >= 1) {
           objnew = {
             name: data.name,
@@ -63,11 +63,13 @@ function showdata(data) {
             if(newqt==0)
             {
               // axios.delete()
-              await axios.delete(`https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy/${data._id}`);  
+              
+              await axios.delete(`https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37be/candy/${data._id}`);  
               location.reload();
+              
             }
             else{
-                await axios.put(`https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy/${data._id}`, objnew);
+                await axios.put(`https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37be/candy/${data._id}`, objnew);
                 console.log(div.firstElementChild);
                 div.firstChild.textContent = `${data.name} ${data.description} ${data.price} ${newqt} `;
                 console.log(div.firstChild);
@@ -83,7 +85,8 @@ function showdata(data) {
   let by2=document.createElement('input');
     by2.type='button';
     by2.value='buy 2';
-    by2.addEventListener('click', async (buy) => {
+    
+    by2.addEventListener('click', async (buy) => { 
         if (data.quantity >= 2) {
           objnew = {
             name: data.name,
@@ -98,12 +101,12 @@ function showdata(data) {
             if(newqt==0)
             {
               // axios.delete()
-              await axios.delete(`https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy/${data._id}`);  
+              await axios.delete(`https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37be/candy/${data._id}`);  
               location.reload();
             }
             else
             {
-                await axios.put(`https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy/${data._id}`, objnew);
+                await axios.put(`https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37becandy/${data._id}`, objnew);
                 console.log(div.firstElementChild);
                 div.firstChild.textContent = `${data.name} ${data.description} ${data.price} ${newqt} `;
                 console.log(div.firstChild);
@@ -134,12 +137,12 @@ function showdata(data) {
             if(newqt==0)
             {
               // axios.delete()
-              await axios.delete(`https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy/${data._id}`);  
+              await axios.delete(`https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37becandy/${data._id}`);  
               location.reload();
             }
             else
             {
-                await axios.put(`https://crudcrud.com/api/bea28eb2b4244a63b816fc306c8a93e7/candy/${data._id}`, objnew);
+                await axios.put(`https://crudcrud.com/api/bfd69f66e21a4721a09ae1e5be9d37be/candy/${data._id}`, objnew);
                 console.log(div.firstElementChild);
                 div.firstChild.textContent = `${data.name} ${data.description} ${data.price} ${newqt} `;
                 console.log(div.firstChild);
